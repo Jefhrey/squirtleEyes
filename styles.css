@@ -1,6 +1,9 @@
-body,body{
+body{
     background: black;
     
+}
+body{
+    overflow: hidden;
 }
 html{
     box-sizing: border-box;
@@ -43,20 +46,14 @@ img{
     inherits: true;
 }
 
-/* @keyframes move-eye{
-    from {
-        --left-eye-x: 65%;
-    }
-    to {
-        --left-eye-x: 51%;
-    }
-} */
-
 .wrapper{
-    /* border: solid red 5px; */
     position: relative;
     animation: move 2s forwards;
-    transition: --left-eye-x 0.15s linear
+    transition:
+        --left-eye-x 0.15s linear,
+        --left-eye-y 0.15s linear,
+        --right-eye-x 0.15s linear,
+        --right-eye-y 0.15s linear;
 }
 
 /* Boundary for left eye: 
@@ -95,16 +92,9 @@ img{
     z-index: 2;
 }
 
-body{
-    overflow: hidden;
-}
 .derp{
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-}
-
-.wrapper{
-    /* border: solid 2px yellow; */
 }
