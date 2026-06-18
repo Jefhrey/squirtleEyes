@@ -1,0 +1,110 @@
+body,body{
+    background: black;
+    
+}
+html{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+img{
+    width: 200px;
+    height: 200px;
+    display:block;
+    position: relative;
+}
+
+:root {
+ --eye-size: 20px;
+}
+
+
+@property --left-eye-x{
+    syntax: "<percentage>";
+    initial-value: 59%;
+    inherits: true;
+}
+
+@property --left-eye-y{
+    syntax: "<percentage>";
+    initial-value: 22%;
+    inherits: true;
+}
+
+@property --right-eye-x{
+    syntax: "<percentage>";
+    initial-value: 15%;
+    inherits: true;
+}
+
+@property --right-eye-y{
+    syntax: "<percentage>";
+    initial-value: 23%;
+    inherits: true;
+}
+
+/* @keyframes move-eye{
+    from {
+        --left-eye-x: 65%;
+    }
+    to {
+        --left-eye-x: 51%;
+    }
+} */
+
+.wrapper{
+    /* border: solid red 5px; */
+    position: relative;
+    animation: move 2s forwards;
+    transition: --left-eye-x 0.15s linear
+}
+
+/* Boundary for left eye: 
+    Right end: 51%
+    Left end: 65%
+    Top: 15%
+    Bottom: 31%
+*/
+.wrapper::after{
+    content: "";
+    background: black;
+    border-radius: 50%;
+    top: var(--left-eye-y);
+    right: var(--left-eye-x);
+    height: var(--eye-size);
+    width: var(--eye-size);
+    position: absolute;
+}
+
+/* Boundary for right eye: 
+    Right end: 5%
+    Left end: 22%
+    Top: 14.5%
+    Bottom:33.5% %
+*/
+
+.wrapper::before{
+    content: "";
+    background: black;
+    border-radius: 50%;
+    top: var(--right-eye-y);
+    right: var(--right-eye-x);
+    height: var(--eye-size);
+    width: var(--eye-size);
+    position: absolute;
+    z-index: 2;
+}
+
+body{
+    overflow: hidden;
+}
+.derp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.wrapper{
+    /* border: solid 2px yellow; */
+}
