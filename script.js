@@ -1,12 +1,4 @@
 
-// const leftX = [54, 63];
-// const leftY = [18, 29];
-
-// const rightX = [6.5, 20];
-// const rightY = [16.5, 31.5];
-// Origin -> the center of the png.
-
-
 document.addEventListener("DOMContentLoaded", () => {
     
 const wrapper = document.querySelector(".wrapper");
@@ -23,19 +15,6 @@ const centerX =  wrapperX + (imgWidth/2);
 const centerY =  wrapperY + (imgHeight/2);
 
     document.addEventListener("mousemove", (e) =>{
-        // x = e.clientX / WIDTH;
-        // y = e.clientY / HEIGHT;
-    
-        // coordLeftX = 63 - (x * 9);
-        // coordLeftY = (y * 11) + 18;
-
-        // coordRightX = 20 - (x * 13.5);
-        // coordRightY = (y * 15) + 16.5;
-        // moveLeftX(coordLeftX);
-        // moveLeftY(coordLeftY);
-
-        // moveRightX(coordRightX);
-        // moveRightY(coordRightY);
         const mouseX = e.clientX;
         const mouseY = e.clientY;
 
@@ -46,40 +25,9 @@ const centerY =  wrapperY + (imgHeight/2);
         if (radianAngle < 0)
             radianAngle += Math.PI*2;
         let degAngle = (radianAngle * 180) / Math.PI;
-        degAngle += 45;
+        degAngle += 45; // Cuz the pivot is at bottom left, it means the circle already pointing 45 degrees up,
+                        //  which in browser coordinates is -45, so to offset that and bring things back to zero,
+                        // we add 45 degrees. 
         wrapper.style.setProperty("--rotation-angle", `${degAngle}deg`); 
     })
 })
-
-
-// function moveLeftX(coord)
-// {
-//     wrapper.style.setProperty(
-//         "--left-eye-x",
-//         `${coord}%`
-//     );
-// }
-
-// function moveLeftY(coord)
-// {
-//     wrapper.style.setProperty(
-//         "--left-eye-y",
-//         `${coord}%`
-//     );
-// }
-
-// function moveRightX(coord)
-// {
-//     wrapper.style.setProperty(
-//         "--right-eye-x",
-//         `${coord}%`
-//     );
-// }
-
-// function moveRightY(coord)
-// {
-//     wrapper.style.setProperty(
-//         "--right-eye-y",
-//         `${coord}%`
-//     );
-// }

@@ -19,35 +19,6 @@ img{
 
 :root {
  --eye-size: 20px;
- transition: --eye-size 150ms ease;
-}
-
-:root.blink {
-    --eye-size: 40px;
-}
-
-@property --left-eye-x{
-    syntax: "<percentage>";
-    initial-value: 59%;
-    inherits: true;
-}
-
-@property --left-eye-y{
-    syntax: "<percentage>";
-    initial-value: 22%;
-    inherits: true;
-}
-
-@property --right-eye-x{
-    syntax: "<percentage>";
-    initial-value: 15%;
-    inherits: true;
-}
-
-@property --right-eye-y{
-    syntax: "<percentage>";
-    initial-value: 23%;
-    inherits: true;
 }
 
 @property --rotation-angle{
@@ -60,18 +31,10 @@ img{
     animation: move 2s forwards;
 }
 
-/* Boundary for left eye: 
-    Right end: 51%
-    Left end: 65%          
-    Top: 15%
-    Bottom: 31%
-*/
 .wrapper::after{
     content: "";
     background: black;
     border-radius: 50%;
-    /* top: var(--left-eye-y);
-    right: var(--left-eye-x); */
     top: 21%;
     right: 54%;
     height: var(--eye-size);
@@ -79,23 +42,13 @@ img{
     position: absolute;
     transform-origin: bottom left;
     transform: rotate(var(--rotation-angle));
-    /* transform: rotate(0deg); */
 
 }
-
-/* Boundary for right eye: 
-    Right end: 5%
-    Left end: 22%
-    Top: 14.5%
-    Bottom:33.5% %
-*/
 
 .wrapper::before{
     content: "";
     background: black;
     border-radius: 50%;
-    /* top: var(--right-eye-y);
-    right: var(--right-eye-x); */
     top: 20%;
     right: 10%;
     height: var(--eye-size);
@@ -104,7 +57,6 @@ img{
     z-index: 2;
     transform-origin: bottom left;
     transform: rotate(var(--rotation-angle));
-    /* transform: rotate(0deg); */
 }
 
 .derp{
