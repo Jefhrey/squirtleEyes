@@ -27,7 +27,9 @@ img{
     inherits: true;
 }
 .wrapper{
-    position: relative;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
     animation: move 2s forwards;
 }
 
